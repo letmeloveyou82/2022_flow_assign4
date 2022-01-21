@@ -6,6 +6,7 @@ public class player : MonoBehaviour
 {
     // Unity의 Inspector 창에서 보고 싶은 것들은 public으로 선언 
     public float speed; 
+
     // Input Axis 값을 받을 전역변수 선언
     float hAxis;
     float vAxis;
@@ -22,7 +23,6 @@ public class player : MonoBehaviour
 
     Rigidbody rigid;
     Animator anim;
-
     void Awake()
     {
         rigid = GetComponent<Rigidbody>();
@@ -113,4 +113,5 @@ public class player : MonoBehaviour
             isJump = false;
         }
     }
+
 }

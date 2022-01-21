@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
         {
             if(Input.GetKey(KeyCode.LeftShift))
             {
-                body.AddForce(body.transform.forward * speed * 1.5f);
+                body.AddForce(body.transform.forward * speed * 2f);
             }
             else
             {
@@ -31,15 +31,44 @@ public class PlayerController : MonoBehaviour
         }
         if(Input.GetKey(KeyCode.A))
         {
+            if(Input.GetKey(KeyCode.LeftShift))
+            {
+                body.AddForce(-body.transform.right * strafeSpeed * 2f);
+            }
+            else
+            {
                 body.AddForce(-body.transform.right * strafeSpeed);
+            }
         }
         if(Input.GetKey(KeyCode.S))
         {
+            if(Input.GetKey(KeyCode.LeftShift))
+            {
+                body.AddForce(-body.transform.forward * speed * 2f);
+            }
+            else
+            {
                 body.AddForce(-body.transform.forward * speed);
+            }
         }
         if(Input.GetKey(KeyCode.D))
         {
+            if(Input.GetKey(KeyCode.LeftShift))
+            {
+                body.AddForce(body.transform.right * strafeSpeed * 2f);
+            }
+            else 
+            {
                 body.AddForce(body.transform.right * strafeSpeed);
+            }
+        }
+        if(Input.GetAxis("Jump") > 0)
+        {
+            if(isGrounded)
+            {
+                body.AddForce(new Vector3(0, jumpForce, 0));
+                isGrounded = false;
+            }
         }
     }
 }

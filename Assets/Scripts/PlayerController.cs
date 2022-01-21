@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         if(Input.GetKey(KeyCode.W))
         {
             if(Input.GetKey(KeyCode.LeftShift))
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isWalk", false);
             animator.SetBool("isRun", false);
         }
+
         if(Input.GetKey(KeyCode.A))
         {
             if(Input.GetKey(KeyCode.LeftShift))
@@ -52,17 +54,30 @@ public class PlayerController : MonoBehaviour
                 body.AddForce(-body.transform.right * strafeSpeed);
             }
         }
+
         if(Input.GetKey(KeyCode.S))
         {
             if(Input.GetKey(KeyCode.LeftShift))
             {
+                animator.SetBool("isWalk", true);
+                animator.SetBool("isRun", true);
+
                 body.AddForce(-body.transform.forward * speed * 2f);
             }
             else
             {
+                animator.SetBool("isRun", false);
+                animator.SetBool("isWalk", true);
+
                 body.AddForce(-body.transform.forward * speed);
             }
         }
+        else if (!Input.GetKey(KeyCode.W))
+        {
+            animator.SetBool("isWalk", false);
+            animator.SetBool("isRun", false);
+        }
+
         if(Input.GetKey(KeyCode.D))
         {
             if(Input.GetKey(KeyCode.LeftShift))
@@ -74,6 +89,7 @@ public class PlayerController : MonoBehaviour
                 body.AddForce(body.transform.right * strafeSpeed);
             }
         }
+
         if(Input.GetAxis("Jump") > 0)
         {
             if(isGrounded)

@@ -2488,6 +2488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e446f6c988a464cb3cd6036062a151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1128473616}
   speed: 300
   strafeSpeed: 250
   jumpForce: 8000
@@ -3049,7 +3050,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.5, y: -0, z: -0, w: 0.8660254}
-  m_LocalPosition: {x: 7.85, y: 22.35, z: -20}
+  m_LocalPosition: {x: 7.85, y: 30, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

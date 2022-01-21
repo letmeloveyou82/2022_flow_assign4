@@ -45,14 +45,12 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKey(KeyCode.A))
         {
-            if(Input.GetKey(KeyCode.LeftShift))
-            {
-                body.AddForce(-body.transform.right * strafeSpeed * 2f);
-            }
-            else
-            {
-                body.AddForce(-body.transform.right * strafeSpeed);
-            }
+            animator.SetBool("isSideLeft", true);
+            body.AddForce(-body.transform.right * strafeSpeed);
+        }
+        else
+        {
+            animator.SetBool("isSideLeft", false);
         }
 
         if(Input.GetKey(KeyCode.S))
@@ -80,14 +78,13 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKey(KeyCode.D))
         {
-            if(Input.GetKey(KeyCode.LeftShift))
-            {
-                body.AddForce(body.transform.right * strafeSpeed * 2f);
-            }
-            else 
-            {
-                body.AddForce(body.transform.right * strafeSpeed);
-            }
+            animator.SetBool("isSideRight", true);
+            body.AddForce(body.transform.right * strafeSpeed);
+        }
+        else if (!Input.GetKey(KeyCode.A))
+        {
+            animator.SetBool("isSideRight", false);
+            animator.SetBool("isSideLeft", false);
         }
 
         if(Input.GetAxis("Jump") > 0)

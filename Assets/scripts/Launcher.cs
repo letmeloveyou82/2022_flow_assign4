@@ -18,9 +18,12 @@ public class Launcher : MonoBehaviourPunCallbacks
     [SerializeField] Transform playerListContent;
     [SerializeField] GameObject playerListItemPrefab;
     [SerializeField] GameObject StartGameButton;
+
+    [SerializeField] TMP_InputField nickNameInputField;
     // Start is called before the first frame update
 
-    void Awake() {
+    void Awake()
+    {
         {
             Instance = this;
         }
@@ -29,14 +32,15 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         Debug.Log("Connecting to Master");
         PhotonNetwork.ConnectUsingSettings(); //connect master server based on photon server
-        
+
     }
 
-    public override void OnConnectedToMaster() {
-         //when connected to master server
-         Debug.Log("Connected to Master");
-         PhotonNetwork.JoinLobby(); //connect to lobby when we connect to Master server
-         PhotonNetwork.AutomaticallySyncScene = true;
+    public override void OnConnectedToMaster()
+    {
+        //when connected to master server
+        Debug.Log("Connected to Master");
+        PhotonNetwork.JoinLobby(); //connect to lobby when we connect to Master server
+        PhotonNetwork.AutomaticallySyncScene = true;
 
     }
 
@@ -44,9 +48,21 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         MenuManager.Instance.OpenMenu("title");
         Debug.Log("Joined Lobby");
-        PhotonNetwork.NickName = "Player " + Random.Range(0, 1000).ToString("0000");
+         PhotonNetwork.NickName = "Player " + Random.Range(0, 1000).ToString("0000");
+        // PhotonNetwork.NickName = nickNameInputField.text;
+       
     }
 
+    // public void CreateNickName()
+    // {
+    //     if (string.IsNullOrEmpty(nickNameInputField.text))
+    //     {
+    //         return;
+    //     }
+    //     PhotonNetwork.NickName = nickNameInputField.text;
+
+
+    // }
     public void CreateRoom()
     {
         if (string.IsNullOrEmpty(roomNameInputField.text))
@@ -63,7 +79,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         MenuManager.Instance.OpenMenu("room");
         roomNameText.text = PhotonNetwork.CurrentRoom.Name;
 
-        foreach(Transform child in playerListContent)
+        foreach (Transform child in playerListContent)
         {
             Destroy(child.gameObject);
         }
@@ -87,13 +103,14 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LoadLevel(1); //build 에서 game scene 번호가 1임
     }
-    public void LeaveRoom() 
+    public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
         MenuManager.Instance.OpenMenu("loading");
     }
 
-    public void JoinRoom (RoomInfo info) {
+    public void JoinRoom(RoomInfo info)
+    {
         {
             PhotonNetwork.JoinRoom(info.Name);
             MenuManager.Instance.OpenMenu("loading");
@@ -105,15 +122,15 @@ public class Launcher : MonoBehaviourPunCallbacks
         MenuManager.Instance.OpenMenu("title");
     }
 
-    public override async void OnRoomListUpdate(List<RoomInfo> roomList)
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
         foreach (Transform trans in roomListContent)
         {
             Destroy(trans.gameObject);
         }
-        for (int i = 0; i<roomList.Count; i ++ )
+        for (int i = 0; i < roomList.Count; i++)
         {
-            if(roomList[i].RemovedFromList)
+            if (roomList[i].RemovedFromList)
             {
                 continue;
             }
@@ -129,6 +146,6 @@ public class Launcher : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

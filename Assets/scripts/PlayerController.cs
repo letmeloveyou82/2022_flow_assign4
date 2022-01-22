@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody body;
     public bool isGrounded;
     PhotonView PV;
-    public Camera camera;
+    public Camera cam;
 
 
     
@@ -24,17 +24,15 @@ public class PlayerController : MonoBehaviour
     {
         body = GetComponent<Rigidbody>();
         PV = GetComponent<PhotonView>();
-        camera = transform.root.GetComponentInChildren<Camera>();
+        cam = transform.root.GetComponentInChildren<Camera>();
     }
 
     void Start()
     {
         if (!PV.IsMine)
         {
-            Destroy(camera);
+            Destroy(cam);
             Destroy(body);
-            // Destroy(gameObject);
-            //내꺼 아니면 카메라 없애기
         }
     }
 

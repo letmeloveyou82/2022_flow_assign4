@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Grab : MonoBehaviour
 {
-    Rigidbody rb;
-    public KeyCode GrabInput, UnGrabInput;
+    public Rigidbody rb;
+    public KeyCode GrabInput;
     public GameObject MyGrabObj;
+    FixedJoint Fj;
     public bool IsGrab = true;
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = transform.root.GetComponentInChildren<Rigidbody>();
+        
     }
 
     // Update is called once per frame
@@ -23,38 +25,47 @@ public class Grab : MonoBehaviour
          {
              if(!IsGrab)
              {  
+                 Debug.Log("Grabbed");
 
-                 FixedJoint Fj = MyGrabObj.AddComponent<FixedJoint>();
+                // Fj = rb.gameObject.AddComponent<FixedJoint>();
+                // Fj.connectedBody = MyGrabObj;
+                 Fj = MyGrabObj.AddComponent<FixedJoint>();
                  Fj.connectedBody = rb;
-                //  Fj.breakForce = 8000;
+                 Fj.breakForce = 8000;
                  IsGrab= true;
              }
          }
-         else if(Input.GetKey(UnGrabInput))
+         else if(Input.GetKeyUp(GrabInput))
          {
-             if(MyGrabObj.CompareTag("Item"))
+             if(MyGrabObj.CompareTag("Player"))
              {
+                 Debug.Log("UnGrabbed");
+
                 IsGrab= false;
-                 Destroy(MyGrabObj.GetComponent<Joint>());
+                Destroy(Fj);
+                MyGrabObj = null; 
              }
       
          }
      }   
     }
-    public void OnTriggerEnter(Collider other) {
+    public void OnCollisionEnter(Collision collision) {
 
-        if(other.gameObject.CompareTag("Item"))
+        if(collision.gameObject.CompareTag("Player"))
         {
-            MyGrabObj = other.gameObject;
+        Debug.Log("onCollision:Player");
+        MyGrabObj = collision.gameObject;
+ 
         }
         
     }
 
-    public void OnTriggerExit(Collider other)
-    {
-        if(other.gameObject.CompareTag("Item"))
-        {
-            MyGrabObj = null;
-        }
-    }
+    // public void OnCollisionExit(Collision other)
+    // {
+    //     if(other.gameObject.CompareTag("Player"))
+    //     {
+    //         Debug.Log("ontriggerExit:Player");
+    //         MyGrabObj = null;
+    //     }
+    // }
 }

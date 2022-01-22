@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - Follow
+    - Grab
     - Launcher
     - LimbCollision
     - Menu
@@ -39,8 +40,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -92,7 +95,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2652}
     - Class: 114
-      Script: {instanceID: 2978}
+      Script: {instanceID: 2980}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -179,49 +182,51 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2774}
     - Class: 114
-      Script: {instanceID: 2978}
+      Script: {instanceID: 2970}
     - Class: 114
-      Script: {instanceID: 2986}
+      Script: {instanceID: 2980}
     - Class: 114
       Script: {instanceID: 2988}
     - Class: 114
-      Script: {instanceID: 3080}
+      Script: {instanceID: 2990}
     - Class: 114
-      Script: {instanceID: 3374}
+      Script: {instanceID: 3082}
     - Class: 114
-      Script: {instanceID: 3534}
+      Script: {instanceID: 3376}
     - Class: 114
-      Script: {instanceID: 3744}
+      Script: {instanceID: 3536}
     - Class: 114
-      Script: {instanceID: 3760}
+      Script: {instanceID: 3746}
     - Class: 114
-      Script: {instanceID: 3856}
+      Script: {instanceID: 3762}
     - Class: 114
-      Script: {instanceID: 3860}
+      Script: {instanceID: 3858}
     - Class: 114
-      Script: {instanceID: 4030}
+      Script: {instanceID: 3862}
     - Class: 114
-      Script: {instanceID: 4074}
+      Script: {instanceID: 4032}
     - Class: 114
-      Script: {instanceID: 4158}
+      Script: {instanceID: 4076}
     - Class: 114
-      Script: {instanceID: 4178}
+      Script: {instanceID: 4160}
     - Class: 114
-      Script: {instanceID: 4456}
+      Script: {instanceID: 4180}
     - Class: 114
-      Script: {instanceID: 4474}
+      Script: {instanceID: 4458}
     - Class: 114
       Script: {instanceID: 4476}
     - Class: 114
-      Script: {instanceID: 4618}
+      Script: {instanceID: 4478}
     - Class: 114
-      Script: {instanceID: 4624}
+      Script: {instanceID: 4620}
     - Class: 114
-      Script: {instanceID: 4748}
+      Script: {instanceID: 4626}
     - Class: 114
-      Script: {instanceID: 4858}
+      Script: {instanceID: 4750}
     - Class: 114
-      Script: {instanceID: 4930}
+      Script: {instanceID: 4860}
+    - Class: 114
+      Script: {instanceID: 4932}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -451,7 +456,7 @@ ScriptsOnlyBuild:
     className: CurrentRoomIsVisibleProperty
   - hash:
       serializedVersion: 2
-      Hash: d317cca57ac07bbd53d2fc15b73726f0
+      Hash: c4b21933411f288ab778826edafd3bd3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -803,6 +808,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Utilities.dll
     namespaceName: Photon.Pun.UtilityScripts
     className: OnClickInstantiate
+  - hash:
+      serializedVersion: 2
+      Hash: 32b7c24009f4e69ccb17a4b855e3ddf3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Grab
   - hash:
       serializedVersion: 2
       Hash: 00e94708ac94b5a38c9f21b9f89467a6

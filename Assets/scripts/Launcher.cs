@@ -142,10 +142,4 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         Instantiate(playerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(newPlayer);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

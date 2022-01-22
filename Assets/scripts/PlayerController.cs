@@ -5,25 +5,35 @@ using Photon.Pun;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] GameObject cameraHolder;
     public Animator animator;
 
-    public float speed; 
+    public float speed;
     public float strafeSpeed;
     public float jumpForce;
-    
+
     public Rigidbody body;
     public bool isGrounded;
     PhotonView PV;
+    public Camera camera;
+
+
+    
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         body = GetComponent<Rigidbody>();
         PV = GetComponent<PhotonView>();
-         if (!PV.IsMine)
+        camera = transform.root.GetComponentInChildren<Camera>();
+    }
+
+    void Start()
+    {
+        if (!PV.IsMine)
         {
-            Destroy(GetComponentInChildren<Camera>().gameObject);
+            Destroy(camera);
             Destroy(body);
+            // Destroy(gameObject);
             //내꺼 아니면 카메라 없애기
         }
     }
@@ -33,9 +43,9 @@ public class PlayerController : MonoBehaviour
         if (!PV.IsMine)
             return;//내꺼아니면 작동안함
 
-        if(Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
-            if(Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetKey(KeyCode.LeftShift))
             {
                 animator.SetBool("isWalk", true);
                 animator.SetBool("isRun", true);
@@ -49,13 +59,13 @@ public class PlayerController : MonoBehaviour
                 body.AddForce(body.transform.forward * speed);
             }
         }
-        else 
+        else
         {
             animator.SetBool("isWalk", false);
             animator.SetBool("isRun", false);
         }
 
-        if(Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             animator.SetBool("isSideLeft", true);
             body.AddForce(-body.transform.right * strafeSpeed);
@@ -65,9 +75,9 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isSideLeft", false);
         }
 
-        if(Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
-            if(Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetKey(KeyCode.LeftShift))
             {
                 animator.SetBool("isWalk", true);
                 animator.SetBool("isRun", true);
@@ -88,7 +98,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isRun", false);
         }
 
-        if(Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             animator.SetBool("isSideRight", true);
             body.AddForce(body.transform.right * strafeSpeed);
@@ -99,9 +109,9 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isSideLeft", false);
         }
 
-        if(Input.GetAxis("Jump") > 0)
+        if (Input.GetAxis("Jump") > 0)
         {
-            if(isGrounded)
+            if (isGrounded)
             {
                 body.AddForce(new Vector3(0, jumpForce, 0));
                 isGrounded = false;

@@ -16,49 +16,69 @@ public class Grab : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void pickUp()
     {
-     if (MyGrabObj!= null)
-     {
-         if(Input.GetKey(GrabInput))
-         {
-             if(!IsGrab)
-             {  
-                 Debug.Log("Grabbed");
+        if (MyGrabObj!= null)
+        {
+            if(Input.GetKey(GrabInput))
+            {
+            if(!IsGrab)
+            {  
+                Debug.Log("Grabbed");
 
-                // Fj = rb.gameObject.AddComponent<FixedJoint>();
-                // Fj.connectedBody = MyGrabObj;
-                 Fj = MyGrabObj.AddComponent<FixedJoint>();
-                 Fj.connectedBody = rb;
-                 Fj.breakForce = 8000;
-                 IsGrab= true;
-             }
-         }
-         else if(Input.GetKeyUp(GrabInput))
+            // Fj = rb.gameObject.AddComponent<FixedJoint>();
+            // Fj.connectedBody = MyGrabObj;
+                Fj = MyGrabObj.AddComponent<FixedJoint>();
+                Fj.connectedBody = rb;
+                Fj.breakForce = 8000;
+                IsGrab= true;
+            }
+            }
+        }
+
+    }
+
+    void Throw()
+    {
+        if (MyGrabObj!= null){
+         if(Input.GetKeyUp(GrabInput))
          {
              if(MyGrabObj.CompareTag("Player"))
              {
-                 Debug.Log("UnGrabbed");
+                Vector3 speed = new Vector3(0,500,1000);
+                Debug.Log("UnGrabbed");
 
                 IsGrab= false;
-                Destroy(Fj);
+                DestroyImmediate(Fj);
+                Debug.Log(Fj);
+                
+                Debug.Log(MyGrabObj.transform.root.Find("metarig").Find("Hip").GetComponent<Rigidbody>());
+                MyGrabObj.transform.root.Find("metarig").Find("Hip").GetComponent<Rigidbody>().AddForce(speed, ForceMode.Impulse);
+                // rb.AddForce(speed, ForceMode.Impulse);
+                // MyGrabObj.transform.root.Find("metarig").Find("Hip").Translate(speed);
                 MyGrabObj = null; 
              }
-      
          }
-     }   
+
+        }
     }
-    public void OnCollisionEnter(Collision collision) {
+    void FixedUpdate()
+    {
+     pickUp();
+     Throw();
+     }   
+
+    void OnCollisionEnter(Collision collision) {
 
         if(collision.gameObject.CompareTag("Player"))
         {
-        Debug.Log("onCollision:Player");
         MyGrabObj = collision.gameObject;
  
         }
         
     }
+
+
 
     // public void OnCollisionExit(Collision other)
     // {

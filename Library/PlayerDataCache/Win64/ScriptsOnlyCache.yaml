@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - Follow
+    - Grab
     - Launcher
     - LimbCollision
     - Menu
@@ -21,6 +22,8 @@ ScriptsOnlyBuild:
     - Photon.Pun.Demo.PunBasics.PlayerUI
     - Photon.Pun.Demo.SlotRacer.PlayerControl
     - Photon.Pun.Demo.SlotRacer.Utils.SplineWalker
+    PhotonUnityNetworking.Editor.dll:
+    - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.dll:
     - Photon.Pun.PhotonAnimatorView
     - Photon.Pun.PhotonRigidbodyView
@@ -143,27 +146,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1480}
     - Class: 114
-      Script: {instanceID: 1558}
+      Script: {instanceID: 1482}
     - Class: 114
-      Script: {instanceID: 1576}
+      Script: {instanceID: 1562}
     - Class: 114
-      Script: {instanceID: 1660}
+      Script: {instanceID: 1580}
     - Class: 114
-      Script: {instanceID: 1714}
+      Script: {instanceID: 1662}
     - Class: 114
-      Script: {instanceID: 1742}
+      Script: {instanceID: 1716}
     - Class: 114
-      Script: {instanceID: 1746}
+      Script: {instanceID: 1744}
     - Class: 114
-      Script: {instanceID: 1804}
+      Script: {instanceID: 1748}
     - Class: 114
-      Script: {instanceID: 1864}
+      Script: {instanceID: 1806}
     - Class: 114
-      Script: {instanceID: 2076}
+      Script: {instanceID: 1866}
     - Class: 114
-      Script: {instanceID: 2118}
+      Script: {instanceID: 2078}
     - Class: 114
-      Script: {instanceID: 2130}
+      Script: {instanceID: 2120}
     - Class: 114
       Script: {instanceID: 2228}
     - Class: 114
@@ -177,7 +180,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2636}
     - Class: 114
-      Script: {instanceID: 2776}
+      Script: {instanceID: 2774}
+    - Class: 114
+      Script: {instanceID: 2970}
     - Class: 114
       Script: {instanceID: 2980}
     - Class: 114
@@ -259,10 +264,22 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
+      Hash: 699619b86d9359741a4f58540298c80b
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Text
+  - hash:
+      serializedVersion: 2
       Hash: a6e561615949734e9f12f9b61661f43e
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Image
+  - hash:
+      serializedVersion: 2
+      Hash: bcaee4c2a83047257b5f47d6ed264b75
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Toggle
   - hash:
       serializedVersion: 2
       Hash: 24f79094aff162c9aa69c31d64d777d3
@@ -323,12 +340,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalAsset
-  - hash:
-      serializedVersion: 2
-      Hash: bcaee4c2a83047257b5f47d6ed264b75
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Toggle
   - hash:
       serializedVersion: 2
       Hash: c656dcc13ae391b68d594cc8f9c590b0
@@ -445,7 +456,7 @@ ScriptsOnlyBuild:
     className: CurrentRoomIsVisibleProperty
   - hash:
       serializedVersion: 2
-      Hash: c2fdf6bb308798b874c7d1fa694e9275
+      Hash: c4b21933411f288ab778826edafd3bd3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -509,12 +520,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_StyleSheet
-  - hash:
-      serializedVersion: 2
-      Hash: 699619b86d9359741a4f58540298c80b
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Text
   - hash:
       serializedVersion: 2
       Hash: c656dcc13ae391b68d594cc8f9c590b0
@@ -803,6 +808,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Utilities.dll
     namespaceName: Photon.Pun.UtilityScripts
     className: OnClickInstantiate
+  - hash:
+      serializedVersion: 2
+      Hash: 32b7c24009f4e69ccb17a4b855e3ddf3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Grab
   - hash:
       serializedVersion: 2
       Hash: 00e94708ac94b5a38c9f21b9f89467a6

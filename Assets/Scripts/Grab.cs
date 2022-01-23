@@ -25,12 +25,13 @@ public class Grab : MonoBehaviour
             if(!IsGrab)
             {  
                 Debug.Log("Grabbed");
+                
 
             // Fj = rb.gameObject.AddComponent<FixedJoint>();
             // Fj.connectedBody = MyGrabObj;
                 Fj = MyGrabObj.AddComponent<FixedJoint>();
                 Fj.connectedBody = rb;
-                Fj.breakForce = 8000;
+                Fj.breakForce = 20000;
                 IsGrab= true;
             }
             }

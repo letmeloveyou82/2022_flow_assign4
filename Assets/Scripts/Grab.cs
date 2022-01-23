@@ -4,67 +4,89 @@ using UnityEngine;
 
 public class Grab : MonoBehaviour
 {
-    public Animator animator;
-    GameObject grabbedObj;
     public Rigidbody rb;
-    public int isLeftorRight;
-    public bool alreadyGrabbing = false;
+    public KeyCode GrabInput;
+    public GameObject MyGrabObj;
+    FixedJoint Fj;
+    public bool IsGrab = true;
     // Start is called before the first frame update
     void Start()
     {
-
-        rb = GetComponent<Rigidbody>();
-        // animator = GetComponent<Animator>();
+        rb = transform.root.GetComponentInChildren<Rigidbody>();
+        
     }
 
-    // Update is called once per frame
-    void Update()
+    void pickUp()
     {
-        if(Input.GetMouseButtonDown(isLeftorRight))
+        if (MyGrabObj!= null)
         {
-            if(isLeftorRight == 0)
+            if(Input.GetKey(GrabInput))
             {
-                animator.SetBool("isLeftHandUp", true);
-            }
-            else if(isLeftorRight == 1)
-            {
-                animator.SetBool("isRightHandUp", true);
-            }
+            if(!IsGrab)
+            {  
+                Debug.Log("Grabbed");
 
-            FixedJoint fj = grabbedObj.AddComponent<FixedJoint>();
-            fj.connectedBody = rb;
-            fj.breakForce = 9001;
+            // Fj = rb.gameObject.AddComponent<FixedJoint>();
+            // Fj.connectedBody = MyGrabObj;
+                Fj = MyGrabObj.AddComponent<FixedJoint>();
+                Fj.connectedBody = rb;
+                Fj.breakForce = 8000;
+                IsGrab= true;
+            }
+            }
         }
-        else if(Input.GetMouseButtonUp(isLeftorRight))
-        {
-            if(isLeftorRight == 0)
-            {
-                animator.SetBool("isLeftHandUp", false);
-            }
-            else if(isLeftorRight == 1)
-            {
-                animator.SetBool("isRightHandUp", false);
-            }
 
-            if(grabbedObj != null)
-            {
-                Destroy(grabbedObj.GetComponent<FixedJoint>());
-            }
-
-            grabbedObj = null;
-        }
     }
-    private void OnTriggerEnter(Collider other)
+
+    void Throw()
     {
-        if(other.gameObject.CompareTag("Item"))
-        {
-            Debug.Log("Grabbed");  
-            grabbedObj = other.gameObject;
+        if (MyGrabObj!= null){
+         if(Input.GetKeyUp(GrabInput))
+         {
+             if(MyGrabObj.CompareTag("Item"))
+             {
+                Vector3 speed = new Vector3(0,30,100);
+                Debug.Log("UnGrabbed");
+
+                IsGrab= false;
+                DestroyImmediate(Fj);
+                Debug.Log(Fj);
+                
+                // Debug.Log(MyGrabObj.transform.root.Find("metarig").Find("Hip").GetComponent<Rigidbody>());
+                MyGrabObj.GetComponent<Rigidbody>().AddForce(speed, ForceMode.Impulse);
+                // rb.AddForce(speed, ForceMode.Impulse);
+                // MyGrabObj.transform.root.Find("metarig").Find("Hip").Translate(speed);
+                MyGrabObj = null; 
+             }
+         }
+
         }
     }
-    private void OnTriggerExit(Collider other)
+    void FixedUpdate()
     {
-        Debug.Log("Released");
-        grabbedObj = null;
+     pickUp();
+     Throw();
+     }   
+
+    void OnCollisionEnter(Collision collision) {
+
+        if(collision.gameObject.CompareTag("Item"))
+        {
+            Debug.Log("collisionEnter");
+            MyGrabObj = collision.gameObject;
+ 
+        }
+        
     }
+
+
+
+    // public void OnCollisionExit(Collision other)
+    // {
+    //     if(other.gameObject.CompareTag("Player"))
+    //     {
+    //         Debug.Log("ontriggerExit:Player");
+    //         MyGrabObj = null;
+    //     }
+    // }
 }

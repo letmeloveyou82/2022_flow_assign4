@@ -925,7 +925,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3517952464073813280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.02, y: 20, z: 32.38}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 5560835085158419341}
@@ -1309,7 +1309,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2183474608125305055}
-  - component: {fileID: 8814122888454759013}
   - component: {fileID: 6990038079534778999}
   - component: {fileID: 6990038079534778985}
   - component: {fileID: 6990038079534778992}
@@ -1336,22 +1335,6 @@ Transform:
   m_Father: {fileID: 7737255401471098523}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8814122888454759013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4699112481679908933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c19ef26554f2364690eaea498d78df9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 6990038079534778999}
-  GrabInput: 106
-  MyGrabObj: {fileID: 0}
-  IsGrab: 0
 --- !u!54 &6990038079534778999
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2156,7 +2139,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7101709178744652972}
   m_LocalRotation: {x: 0.79045534, y: -0.00000007301808, z: -0.000000094229634, w: 0.6125197}
-  m_LocalPosition: {x: 0.005769378, y: 0.0053, z: -0.0167}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8949515732458192453}
@@ -2209,9 +2192,9 @@ ConfigurableJoint:
   m_ConnectedAnchor: {x: -2.0086653, y: 21.572739, z: 36.04}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
-  m_XMotion: 0
-  m_YMotion: 0
-  m_ZMotion: 0
+  m_XMotion: 2
+  m_YMotion: 2
+  m_ZMotion: 2
   m_AngularXMotion: 2
   m_AngularYMotion: 2
   m_AngularZMotion: 2
@@ -2328,7 +2311,7 @@ MonoBehaviour:
   animator: {fileID: 6990038080498027227}
   speed: 500
   strafeSpeed: 250
-  jumpForce: 8000
+  jumpForce: 5000
   body: {fileID: 6990038079534778902}
   isGrounded: 0
   cam: {fileID: 0}
@@ -2720,7 +2703,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8048103308696385645}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.56938136, y: 2.718493, z: 2.97}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 4849792484542590048}
@@ -2953,6 +2936,7 @@ MonoBehaviour:
   GrabInput: 103
   MyGrabObj: {fileID: 0}
   IsGrab: 0
+  cam: {fileID: 4772150502216741390}
 --- !u!54 &6990038079534778883
 Rigidbody:
   m_ObjectHideFlags: 0

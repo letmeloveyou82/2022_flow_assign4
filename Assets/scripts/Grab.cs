@@ -9,12 +9,9 @@ public class Grab : MonoBehaviour
     public GameObject MyGrabObj;
     FixedJoint Fj;
     public bool IsGrab = true;
+    public Camera cam;
+            Vector3 targetPos;
     // Start is called before the first frame update
-    void Start()
-    {
-        rb = transform.root.GetComponentInChildren<Rigidbody>();
-        
-    }
 
     void pickUp()
     {
@@ -40,23 +37,29 @@ public class Grab : MonoBehaviour
 
     void Throw()
     {
+
         if (MyGrabObj!= null){
-         if(Input.GetKeyUp(GrabInput))
+         if(Input.GetMouseButtonUp(0))
          {
-             if(MyGrabObj.CompareTag("Player"))
+             if(MyGrabObj.CompareTag("Item"))
              {
-                Vector3 speed = new Vector3(0,500,1000);
-                Debug.Log("UnGrabbed");
+
+                Vector3 mousePos = Input.mousePosition;
+                mousePos.x = mousePos.x-Screen.width/2;
+                mousePos.y = mousePos.y - Screen.height/2;
+                mousePos.z = 0;
+                mousePos.Normalize();
+                mousePos.z = 0.5f;
+                
+
+                MyGrabObj.GetComponent<Rigidbody>().AddForce(mousePos*50f, ForceMode.Impulse);
+                Debug.Log("mousePos"+mousePos);
 
                 IsGrab= false;
                 DestroyImmediate(Fj);
-                Debug.Log(Fj);
-                
-                Debug.Log(MyGrabObj.transform.root.Find("metarig").Find("Hip").GetComponent<Rigidbody>());
-                MyGrabObj.transform.root.Find("metarig").Find("Hip").GetComponent<Rigidbody>().AddForce(speed, ForceMode.Impulse);
-                // rb.AddForce(speed, ForceMode.Impulse);
-                // MyGrabObj.transform.root.Find("metarig").Find("Hip").Translate(speed);
                 MyGrabObj = null; 
+                
+
              }
          }
 
@@ -70,9 +73,10 @@ public class Grab : MonoBehaviour
 
     void OnCollisionEnter(Collision collision) {
 
-        if(collision.gameObject.CompareTag("Player"))
+        if(collision.gameObject.CompareTag("Item"))
         {
         MyGrabObj = collision.gameObject;
+        Debug.Log(MyGrabObj);
  
         }
         
@@ -82,9 +86,8 @@ public class Grab : MonoBehaviour
 
     // public void OnCollisionExit(Collision other)
     // {
-    //     if(other.gameObject.CompareTag("Player"))
+    //     if(other.gameObject.CompareTag("Item"))
     //     {
-    //         Debug.Log("ontriggerExit:Player");
     //         MyGrabObj = null;
     //     }
     // }

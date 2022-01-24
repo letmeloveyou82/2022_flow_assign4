@@ -23,8 +23,6 @@ public class Grab : MonoBehaviour
             {  
                 Debug.Log("Grabbed");
 
-            // Fj = rb.gameObject.AddComponent<FixedJoint>();
-            // Fj.connectedBody = MyGrabObj;
                 Fj = MyGrabObj.AddComponent<FixedJoint>();
                 Fj.connectedBody = rb;
                 Fj.breakForce = 8000;
@@ -38,7 +36,7 @@ public class Grab : MonoBehaviour
     void Throw()
     {
 
-        if (MyGrabObj!= null){
+        if (MyGrabObj!= null && IsGrab){
          if(Input.GetMouseButtonUp(0))
          {
              if(MyGrabObj.CompareTag("Item"))

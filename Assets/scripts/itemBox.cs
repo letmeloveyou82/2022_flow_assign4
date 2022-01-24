@@ -1,0 +1,162 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System;
+using UnityEngine.SceneManagement;
+
+
+public class itemBox : MonoBehaviour
+{
+    public PlayerController rudeZbangController;
+    public GameObject item0;
+    public GameObject item1;
+    public GameObject item2;
+
+    float collisionTime;
+    float speed;
+    int number;
+    GameObject item;
+    GameObject canvas;
+    KeyCode left, right, front, back;
+
+    void Start()
+    {
+        canvas = GameObject.Find("items");
+        speed = rudeZbangController.speed;
+        left = rudeZbangController.left;
+        right = rudeZbangController.right;
+        front = rudeZbangController.front;
+        back = rudeZbangController.back;
+
+    }
+
+    void FixedUpdate()
+    {
+        if (item != null)
+        {
+            switch (number)
+            {
+                case 0:
+                    StartCoroutine(Boost());
+                    break;
+                case 1:
+                    StartCoroutine(Slow());
+                    break;
+                case 2:
+                    StartCoroutine(Stop());
+                    break;
+                case 3:
+                    StartCoroutine(Change());
+                    break;
+                case 4:
+                    StartCoroutine(Jump());
+                    break;
+
+
+            }
+        }
+        
+    }
+
+    IEnumerator Boost()
+    {
+
+        
+        yield return new WaitForSeconds(1f);
+        canvas.transform.Find("item0").gameObject.SetActive(false);
+        rudeZbangController.speed = speed*2;
+
+        yield return new WaitForSeconds(3f);
+        
+        rudeZbangController.speed = speed;
+
+        item = null;
+        
+    }
+    IEnumerator Slow()
+    {   
+        
+        yield return new WaitForSecondsRealtime(1f);
+        canvas.transform.Find("item1").gameObject.SetActive(false);
+        rudeZbangController.speed = speed/2;
+        yield return new WaitForSeconds(3f);
+        rudeZbangController.speed = speed;
+
+        item = null;
+    }
+
+    IEnumerator Stop()
+    {
+         
+        yield return new WaitForSecondsRealtime(1f);
+        canvas.transform.Find("item2").gameObject.SetActive(false);
+        rudeZbangController.speed = 0;
+        yield return new WaitForSeconds(3f);
+        rudeZbangController.speed = speed;
+        item = null;
+    }
+
+    IEnumerator Change()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        canvas.transform.Find("item2").gameObject.SetActive(false);
+        rudeZbangController.left = right;
+        rudeZbangController.right = left;
+        rudeZbangController.front = back;
+        rudeZbangController.back = front;
+        yield return new WaitForSeconds(3f);
+        rudeZbangController.left = left;
+        rudeZbangController.right = right;
+        rudeZbangController.front = front;
+        rudeZbangController.back = back;
+        item = null;
+
+    }
+    
+    IEnumerator Jump()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        canvas.transform.Find("item2").gameObject.SetActive(false);
+        Rigidbody rb = transform.root.GetComponentInChildren<Rigidbody>();
+        Debug.Log(rb);
+        rb.AddForce(new Vector3(0,100,2000));
+        item = null;
+    }
+
+
+        void OnCollisionEnter(Collision collision){
+        
+        if(collision.gameObject.CompareTag("Item"))
+        {
+
+        System.Random rand = new System.Random();
+        number = rand.Next(5);
+
+        collisionTime = Time.time;
+        item = collision.gameObject;
+        item.SetActive(false);
+        Debug.Log(number);
+        switch (number)
+        {
+            case 0:
+                canvas.transform.Find("item0").gameObject.SetActive(true);
+                break;
+            case 1:
+                canvas.transform.Find("item1").gameObject.SetActive(true);
+                break;
+            case 2:
+                canvas.transform.Find("item2").gameObject.SetActive(true);
+                break;
+            case 3:
+                canvas.transform.Find("item2").gameObject.SetActive(true);
+                break;
+            case 4:
+                canvas.transform.Find("item2").gameObject.SetActive(true);
+                break;
+
+        }
+    
+    }
+    }
+
+}

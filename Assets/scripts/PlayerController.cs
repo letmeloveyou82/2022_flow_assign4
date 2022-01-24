@@ -6,6 +6,7 @@ using Photon.Pun;
 public class PlayerController : MonoBehaviour
 {
     public Animator animator;
+    public KeyCode left, right, front, back;
 
     public float speed;
     public float strafeSpeed;
@@ -41,7 +42,7 @@ public class PlayerController : MonoBehaviour
         if (!PV.IsMine)
             return;//내꺼아니면 작동안함
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(front))
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
@@ -63,7 +64,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isRun", false);
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(left))
         {
             animator.SetBool("isSideLeft", true);
             body.AddForce(-body.transform.right * strafeSpeed);
@@ -73,7 +74,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isSideLeft", false);
         }
 
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(back))
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
@@ -90,18 +91,18 @@ public class PlayerController : MonoBehaviour
                 body.AddForce(-body.transform.forward * speed);
             }
         }
-        else if (!Input.GetKey(KeyCode.W))
+        else if (!Input.GetKey(front))
         {
             animator.SetBool("isWalk", false);
             animator.SetBool("isRun", false);
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(right))
         {
             animator.SetBool("isSideRight", true);
             body.AddForce(body.transform.right * strafeSpeed);
         }
-        else if (!Input.GetKey(KeyCode.A))
+        else if (!Input.GetKey(left))
         {
             animator.SetBool("isSideRight", false);
             animator.SetBool("isSideLeft", false);

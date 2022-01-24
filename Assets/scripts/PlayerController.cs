@@ -7,29 +7,29 @@ public class PlayerController : MonoBehaviour
 {
     public Animator animator;
     public KeyCode left, right, front, back;
-
     public float speed;
     public float strafeSpeed;
     public float jumpForce;
+    // public GameObject EndPanel;
 
     public Rigidbody body;
     public bool isGrounded;
     PhotonView PV;
     public Camera cam;
-
-
-    
-
+    GameObject canvas;
+ 
     // Start is called before the first frame update
     void Awake()
     {
         body = GetComponent<Rigidbody>();
         PV = GetComponent<PhotonView>();
         cam = transform.root.GetComponentInChildren<Camera>();
+        canvas = GameObject.Find("EndCanvas"); 
     }
 
     void Start()
     {
+        
         if (!PV.IsMine)
         {
             Destroy(cam);
@@ -115,6 +115,15 @@ public class PlayerController : MonoBehaviour
                 body.AddForce(new Vector3(0, jumpForce, 0));
                 isGrounded = false;
             }
+        }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            
+            Debug.Log("Esc CLICK");
+            body.gameObject.SetActive(false);
+            Debug.Log("canvas: ", canvas);
+            canvas.transform.Find("EndPanel").gameObject.SetActive(true);
         }
     }
 }

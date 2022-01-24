@@ -25,7 +25,8 @@ public class GameController : MonoBehaviour
              finish = other.gameObject;
              Debug.Log(finish);
              Debug.Log("OntriggerEnter");
-             Time.timeScale = 0f;
+             
+            // rb.transform.root.transform.position = new Vector3 ( 2988, 58,2564);
          }
      }
 

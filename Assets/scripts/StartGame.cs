@@ -8,6 +8,7 @@ public class StartGame : MonoBehaviour
     public GameObject canvas;
     float startTime;
     public Text timeText;
+    
     int i = 0;
     // Start is called before the first frame update
     void Awake()
@@ -15,19 +16,24 @@ public class StartGame : MonoBehaviour
         Time.timeScale = 0;
     }
 
-
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-            i ++;
-            Debug.Log(i);
-            timeText.text = (30-i).ToString();
-            if (i == 30)
-            {
-            Debug.Log("after few seconds");
-            canvas.SetActive(false);
-            Time.timeScale = 1.0f;
-            }
+         StartCoroutine(BeforeStart());
+    }
+
+    IEnumerator BeforeStart() 
+    {
+        timeText.text = "3";
+        yield return new WaitForSecondsRealtime(1.0f);
+        timeText.text = "2";
+        yield return new WaitForSecondsRealtime(1.0f);
+        timeText.text = "1";
+        yield return new WaitForSecondsRealtime(1.0f);
+        Time.timeScale = 1.0f;
+        canvas.SetActive(false);
 
     }
+
+
+
 }

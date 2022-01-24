@@ -57,10 +57,10 @@ public class itemBox : MonoBehaviour
     IEnumerator Boost()
     {
 
-        
+        rudeZbangController.speed = speed*2;
         yield return new WaitForSeconds(1f);
         canvas.transform.Find("item0").gameObject.SetActive(false);
-        rudeZbangController.speed = speed*2;
+
 
         yield return new WaitForSeconds(3f);
         
@@ -71,10 +71,9 @@ public class itemBox : MonoBehaviour
     }
     IEnumerator Slow()
     {   
-        
+        rudeZbangController.speed = speed/2;
         yield return new WaitForSecondsRealtime(1f);
         canvas.transform.Find("item1").gameObject.SetActive(false);
-        rudeZbangController.speed = speed/2;
         yield return new WaitForSeconds(3f);
         rudeZbangController.speed = speed;
 
@@ -83,10 +82,10 @@ public class itemBox : MonoBehaviour
 
     IEnumerator Stop()
     {
-         
+        rudeZbangController.speed = 0;
         yield return new WaitForSecondsRealtime(1f);
         canvas.transform.Find("item2").gameObject.SetActive(false);
-        rudeZbangController.speed = 0;
+
         yield return new WaitForSeconds(3f);
         rudeZbangController.speed = speed;
         item = null;
@@ -94,12 +93,13 @@ public class itemBox : MonoBehaviour
 
     IEnumerator Change()
     {
-        yield return new WaitForSecondsRealtime(1f);
-        canvas.transform.Find("item2").gameObject.SetActive(false);
         rudeZbangController.left = right;
         rudeZbangController.right = left;
         rudeZbangController.front = back;
         rudeZbangController.back = front;
+        yield return new WaitForSecondsRealtime(1f);
+        canvas.transform.Find("item2").gameObject.SetActive(false);
+
         yield return new WaitForSeconds(3f);
         rudeZbangController.left = left;
         rudeZbangController.right = right;

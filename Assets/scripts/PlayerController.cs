@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class PlayerController : MonoBehaviour
+
+public class PlayerController : MonoBehaviourPunCallbacks
 {
     public Animator animator;
     public KeyCode left, right, front, back;
@@ -11,18 +12,19 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float strafeSpeed;
     public float jumpForce;
-
     public Rigidbody body;
     public bool isGrounded;
     PhotonView PV;
     public Camera cam;
-
-
-    
+    GameObject finish;
+    bool isFinish;
+    bool isWinner;
+    game gameManager;
 
     // Start is called before the first frame update
     void Awake()
     {
+        gameManager = game.Instance;
         body = GetComponent<Rigidbody>();
         PV = GetComponent<PhotonView>();
         cam = transform.root.GetComponentInChildren<Camera>();
@@ -35,7 +37,53 @@ public class PlayerController : MonoBehaviour
             Destroy(cam);
             Destroy(body);
         }
+
+        
+
+        if (gameManager.nickname != "") {
+            if (gameManager.nickname == PhotonNetwork.NickName)
+            {
+                body.transform.root.transform.position = new Vector3 (10,10,10);
+            }
+            else{
+                body.transform.root.transform.position = new Vector3 (1000,10000,100);
+            }
     }
+        }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+         if(other.gameObject.CompareTag("Finish"))
+         {
+            finish = other.gameObject;
+            Debug.Log(finish);
+            Debug.Log("OntriggerEnter");
+
+            if(photonView.IsMine){
+                photonView.RPC("setWinner", RpcTarget.All, PhotonNetwork.NickName);
+
+            }
+            photonView.RPC("finishGame", RpcTarget.All);
+            
+         }
+
+    }
+    
+    [PunRPC]
+    private void setWinner(string nickname){
+        gameManager.setWinner(nickname);
+    }
+
+    [PunRPC]
+    private void finishGame() {
+        PhotonNetwork.AutomaticallySyncScene = true;
+        PhotonNetwork.LoadLevel(2);
+
+
+    }
+
 
     private void FixedUpdate()
     {

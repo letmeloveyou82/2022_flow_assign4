@@ -19,6 +19,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     [SerializeField] GameObject playerListItemPrefab;
     [SerializeField] GameObject StartGameButton;
 
+    [SerializeField] GameObject SetNickNameButton;
     [SerializeField] TMP_InputField nickNameInputField;
     // Start is called before the first frame update
 
@@ -48,21 +49,18 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         MenuManager.Instance.OpenMenu("title");
         Debug.Log("Joined Lobby");
-         PhotonNetwork.NickName = "Player " + Random.Range(0, 1000).ToString("0000");
-        // PhotonNetwork.NickName = nickNameInputField.text;
+        //  PhotonNetwork.NickName = "Player " + Random.Range(0, 1000).ToString("0000");
+        // PhotonNetwork.NickName = nickNameInputsField.text;
        
     }
 
-    // public void CreateNickName()
-    // {
-    //     if (string.IsNullOrEmpty(nickNameInputField.text))
-    //     {
-    //         return;
-    //     }
-    //     PhotonNetwork.NickName = nickNameInputField.text;
+    public void SetNickName()
+    {
+        PhotonNetwork.NickName = nickNameInputField.text.ToString();
+        Debug.Log(PhotonNetwork.NickName);
+        Debug.Log(nickNameInputField.text);
+    }
 
-
-    // }
     public void CreateRoom()
     {
         if (string.IsNullOrEmpty(roomNameInputField.text))
@@ -101,6 +99,12 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public void StartGame()
     {
+        if (string.IsNullOrEmpty(nickNameInputField.text))
+        {
+            return;
+        }
+        PhotonNetwork.NickName = nickNameInputField.text;
+        
         PhotonNetwork.LoadLevel(1); //build 에서 game scene 번호가 1임
     }
     public void LeaveRoom()

@@ -2118,6 +2118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4849792484542590048}
+  - component: {fileID: 1828496029301237346}
   - component: {fileID: 6990038079534778902}
   - component: {fileID: 6990038079534778982}
   - component: {fileID: 6990038079534778903}
@@ -2148,6 +2149,19 @@ Transform:
   m_Father: {fileID: 5560835085158419341}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1828496029301237346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7101709178744652972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2846c478026ede489282a70523606eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 6990038079534778902}
 --- !u!54 &6990038079534778902
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2313,8 +2327,8 @@ MonoBehaviour:
   right: 100
   front: 119
   back: 115
-  speed: 500
-  strafeSpeed: 500
+  speed: 200
+  strafeSpeed: 400
   jumpForce: 5000
   body: {fileID: 6990038079534778902}
   isGrounded: 0
@@ -3159,9 +3173,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rudeZbangController: {fileID: 2776420692213339493}
-  item0: {fileID: 0}
-  item1: {fileID: 0}
-  item2: {fileID: 0}
 --- !u!54 &6990038079534779005
 Rigidbody:
   m_ObjectHideFlags: 0

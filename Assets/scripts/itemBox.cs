@@ -8,10 +8,6 @@ using UnityEngine.SceneManagement;
 public class itemBox : MonoBehaviour
 {
     public PlayerController rudeZbangController;
-    public GameObject item0;
-    public GameObject item1;
-    public GameObject item2;
-
     float collisionTime;
     float speed;
     int number;

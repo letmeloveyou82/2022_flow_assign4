@@ -2,9 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\Assets",
-    "\\Assets\\scripts",
-    "\\Assets\\ToxicTownsmen"
+    "\\Assets\\scripts"
   ],
-  "SelectedNode": "\\Assets\\scripts\\Launcher.cs",
+  "SelectedNode": "\\Assets\\scripts\\PlayerManager.cs",
   "PreviewInSolutionExplorer": false
 }

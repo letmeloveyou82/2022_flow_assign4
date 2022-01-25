@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         
          if(other.gameObject.CompareTag("Finish"))
@@ -92,11 +92,16 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     }
 
-
-    private void FixedUpdate()
+    private void Update()
     {
         if (!PV.IsMine)
             return;//내꺼아니면 작동안함
+    }
+
+
+    void FixedUpdate()
+    {
+
 
         if (Input.GetKey(front))
         {
@@ -166,10 +171,13 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
         if (Input.GetAxis("Jump") > 0)
         {
+            Debug.Log("push space: " + isGrounded);
             if (isGrounded)
             {
                 body.AddForce(new Vector3(0, jumpForce, 0));
+
                 isGrounded = false;
+                Debug.Log("after Jump" + isGrounded);
             }
         }
     }

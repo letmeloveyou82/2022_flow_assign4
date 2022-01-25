@@ -76,7 +76,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000000057533036, y: 0.010305095, z: 0.0009248745}
+  m_ConnectedAnchor: {x: 0.000000005753303, y: 0.010305099, z: 0.0009248754}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c216802df82b4b1e81583b644dfaaba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rudeZbangController: {fileID: 0}
+  rudeZbangController: {fileID: 4505540301988076547}
 --- !u!1 &180280537847222776
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,7 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c216802df82b4b1e81583b644dfaaba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rudeZbangController: {fileID: 0}
+  rudeZbangController: {fileID: 4505540301988076547}
 --- !u!114 &4505540301988076595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,7 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c216802df82b4b1e81583b644dfaaba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rudeZbangController: {fileID: 0}
+  rudeZbangController: {fileID: 4505540301988076547}
 --- !u!1 &1150323690759452270
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,7 +725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c216802df82b4b1e81583b644dfaaba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rudeZbangController: {fileID: 0}
+  rudeZbangController: {fileID: 4505540301988076547}
 --- !u!1 &1216005991001442490
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,7 +804,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000000046992956, y: 0.0048179957, z: 8.1490725e-10}
+  m_ConnectedAnchor: {x: 0.000000004699296, y: 0.004817992, z: 5.820766e-10}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -900,7 +900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c216802df82b4b1e81583b644dfaaba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rudeZbangController: {fileID: 0}
+  rudeZbangController: {fileID: 4505540301988076547}
 --- !u!1 &1226020253806622849
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,7 +1061,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.005804629, y: 0.00066935504, z: 0.0011081201}
+  m_ConnectedAnchor: {x: -0.005804629, y: 0.0006693478, z: 0.001108122}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1157,7 +1157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c216802df82b4b1e81583b644dfaaba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rudeZbangController: {fileID: 0}
+  rudeZbangController: {fileID: 4505540301988076547}
 --- !u!1 &4059163175582106070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,7 +1235,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000004694484, y: 0.0040649334, z: 0.00015884078}
+  m_ConnectedAnchor: {x: 0.0000000046944835, y: 0.004064936, z: 0.00015884031}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1331,7 +1331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c216802df82b4b1e81583b644dfaaba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rudeZbangController: {fileID: 0}
+  rudeZbangController: {fileID: 4505540301988076547}
 --- !u!114 &4505540301988076586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1438,7 +1438,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000005721057, y: 0.0068631005, z: -0.00007560942}
+  m_ConnectedAnchor: {x: -0.0000057310035, y: 0.0068631, z: -0.00007560826}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1534,7 +1534,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000005721057, y: 0.0068631005, z: -0.00007560942}
+  m_ConnectedAnchor: {x: -0.0000057310035, y: 0.0068631, z: -0.00007560826}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -1570,7 +1570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c216802df82b4b1e81583b644dfaaba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rudeZbangController: {fileID: 0}
+  rudeZbangController: {fileID: 4505540301988076547}
 --- !u!114 &4505540301988076584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1853,7 +1853,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0007165207, y: 0.0040296274, z: -0.00009591167}
+  m_ConnectedAnchor: {x: 0.0007165213, y: 0.004029627, z: -0.00009590236}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1949,7 +1949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c216802df82b4b1e81583b644dfaaba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rudeZbangController: {fileID: 0}
+  rudeZbangController: {fileID: 4505540301988076547}
 --- !u!1 &6925301642000140429
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,7 +2030,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 18.98326, y: -20.954975, z: -0.010854334}
+  m_ConnectedAnchor: {x: 18.98326, y: 2.3950253, z: -0.010854334}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 2
@@ -2131,7 +2131,7 @@ MonoBehaviour:
   right: 275
   front: 273
   back: 274
-  speed: 300
+  speed: 200
   strafeSpeed: 250
   jumpForce: 8000
   body: {fileID: 4505540301988076544}
@@ -2349,7 +2349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c216802df82b4b1e81583b644dfaaba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rudeZbangController: {fileID: 0}
+  rudeZbangController: {fileID: 4505540301988076547}
 --- !u!1 &7360737388254881603
 GameObject:
   m_ObjectHideFlags: 0
@@ -2525,7 +2525,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.005578313, y: 0.00066935504, z: 0.0011081173}
+  m_ConnectedAnchor: {x: 0.005578313, y: 0.0006693478, z: 0.0011081191}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2621,7 +2621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c216802df82b4b1e81583b644dfaaba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rudeZbangController: {fileID: 0}
+  rudeZbangController: {fileID: 4505540301988076547}
 --- !u!1 &7864781008411014220
 GameObject:
   m_ObjectHideFlags: 0
@@ -2730,7 +2730,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000006693882, y: 0.0059030144, z: 4.6566206e-10}
+  m_ConnectedAnchor: {x: 0.000000006519259, y: 0.0059030107, z: 3.4924655e-10}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2826,7 +2826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c216802df82b4b1e81583b644dfaaba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rudeZbangController: {fileID: 0}
+  rudeZbangController: {fileID: 4505540301988076547}
 --- !u!1 &8225687817205931012
 GameObject:
   m_ObjectHideFlags: 0
@@ -3001,7 +3001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c216802df82b4b1e81583b644dfaaba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rudeZbangController: {fileID: 0}
+  rudeZbangController: {fileID: 4505540301988076547}
 --- !u!114 &4505540301988076594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3111,7 +3111,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000006170013, y: 0.006845019, z: -0.0000000011641533}
+  m_ConnectedAnchor: {x: -0.000000003696187, y: 0.0068450193, z: -0.0000000030267988}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -3207,7 +3207,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000006170013, y: 0.006845019, z: -0.0000000011641533}
+  m_ConnectedAnchor: {x: -0.000000003696187, y: 0.0068450193, z: -0.0000000030267988}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -3243,7 +3243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c216802df82b4b1e81583b644dfaaba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rudeZbangController: {fileID: 0}
+  rudeZbangController: {fileID: 4505540301988076547}
 --- !u!114 &4505540301988076587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3367,7 +3367,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 5.8207666e-10, y: 0.0059030154, z: 0.0000000011641549}
+  m_ConnectedAnchor: {x: 7.275959e-10, y: 0.0059030117, z: 8.149084e-10}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -3463,4 +3463,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c216802df82b4b1e81583b644dfaaba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rudeZbangController: {fileID: 0}
+  rudeZbangController: {fileID: 4505540301988076547}

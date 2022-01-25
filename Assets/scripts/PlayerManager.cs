@@ -10,7 +10,7 @@ public class PlayerManager : MonoBehaviour
 
     void Awake()
     {
-        PV = GetComponent<PhotonView>();   
+        PV = GetComponent<PhotonView>();
     }
 
     void Start()
@@ -26,3 +26,4 @@ public class PlayerManager : MonoBehaviour
         PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "rudeZbang"), Vector3.zero, Quaternion.identity);
         //포톤 프리펩에 있는 플레이어 컨트롤러를 저 위치에 저 각도로 만들어주기
     }
+}

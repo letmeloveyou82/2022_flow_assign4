@@ -167,7 +167,7 @@ public class itemBox : MonoBehaviour
     {
         Debug.Log("immediately after jump : " + haveItem);
         Rigidbody rb = transform.root.GetComponentInChildren<Rigidbody>();        
-        rb.AddForce(new Vector3(0,100,2000));   
+        rb.AddForce(new Vector3(0,500,500), ForceMode.Impulse);   
         yield return new WaitForSecondsRealtime(3f);
         canvas.transform.Find("JumpPanel").gameObject.SetActive(false);     
         haveItem = false;

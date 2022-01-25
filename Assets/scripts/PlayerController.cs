@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float strafeSpeed;
     public float jumpForce;
+    public GameObject EndPanel;
     // public GameObject EndPanel;
 
     public Rigidbody body;
@@ -119,10 +120,6 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Escape))
         {
-            
-            Debug.Log("Esc CLICK");
-            body.gameObject.SetActive(false);
-            Debug.Log("canvas: ", canvas);
             canvas.transform.Find("EndPanel").gameObject.SetActive(true);
         }
     }

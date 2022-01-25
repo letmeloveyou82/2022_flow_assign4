@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class DeathTrigger : MonoBehaviour
 {
   public GameObject EndPanel;
+  RoomManager rm;
 
   void OnCollisionEnter(Collision collision)
   {
@@ -22,7 +23,7 @@ public class DeathTrigger : MonoBehaviour
       // collision.gameObject.transform.Translate(new Vector3(RandomX, 0, 0));
     }
   }
-  
+
   // IEnumerator Move(Collision collision)
   //   {
   //     Debug.Log("Move() 함수 안");
@@ -34,13 +35,13 @@ public class DeathTrigger : MonoBehaviour
 
   public void ExitBtn()
   {
-    Application.Quit();
-    // 대기실 말고 메뉴로 돌아가도록 설정
+    Debug.Log("ExitBtn");
+    SceneManager.LoadScene(0);
   }
 
   public void StayBtn()
   {
+    Debug.Log("StayBtn");
     EndPanel.SetActive(false);
-    // 카메라 시점을 변경하도록 설정
   }
 }

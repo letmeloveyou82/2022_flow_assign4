@@ -72,7 +72,7 @@ public class Grab : MonoBehaviour
 
         if(collision.gameObject.CompareTag("Item"))
         {
-            Debug.Log("collisionEnter");
+            // Debug.Log("collisionEnter");
             MyGrabObj = collision.gameObject;
  
         }

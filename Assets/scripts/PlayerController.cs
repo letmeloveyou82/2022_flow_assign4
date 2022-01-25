@@ -2,106 +2,53 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-using UnityEngine.SceneManagement;
 
-
-public class PlayerController : MonoBehaviourPunCallbacks
+public class PlayerController : MonoBehaviour
 {
     public Animator animator;
     public KeyCode left, right, front, back;
-
     public float speed;
     public float strafeSpeed;
     public float jumpForce;
+    public GameObject EndPanel;
+    // public GameObject EndPanel;
+
     public Rigidbody body;
     public bool isGrounded;
     PhotonView PV;
     public Camera cam;
-    GameObject finish;
-    bool isFinish;
-    bool isWinner;
-    GameManager gameManager;
+    GameObject canvas;
 
+    public AudioSource audioSource;
+    public AudioClip jumpClip;
+
+    // static AudioSource audioSrc;
     // Start is called before the first frame update
     void Awake()
     {
-        gameManager = GameManager.Instance;
         body = GetComponent<Rigidbody>();
         PV = GetComponent<PhotonView>();
         cam = transform.root.GetComponentInChildren<Camera>();
+        canvas = GameObject.Find("EndCanvas"); 
+        audioSource = GetComponent<AudioSource>();
+        jumpClip = Resources.Load("BackGroundMusic/jumpSound") as AudioClip;
+
     }
 
     void Start()
     {
+        
         if (!PV.IsMine)
         {
             Destroy(cam);
             Destroy(body);
         }
-
-        
-        //if (scenemanager.getactivescene().name == "endgame")
-        //{
-        //    if (gamemanager.nickname != "")
-        //    {
-        //        if (gamemanager.nickname == photonnetwork.nickname)
-        //        {
-        //            debug.log(photonnetwork.nickname);
-        //            body.transform.root.transform.position = new vector3(10, 10, 10);
-        //        }
-        //        else
-        //        {   
-        //            body.transform.root.transform.position = new vector3(30, 30, 100);
-        //        }
-        //    }
-        //}
-
-
-    }
-
-
-    void OnTriggerEnter(Collider other)
-    {
-        
-         if(other.gameObject.CompareTag("Finish"))
-         {
-            finish = other.gameObject;
-            Debug.Log(finish);
-            Debug.Log("OntriggerEnter");
-
-            if(photonView.IsMine){
-                photonView.RPC("setWinner", RpcTarget.All, PhotonNetwork.NickName);
-
-            }
-            photonView.RPC("finishGame", RpcTarget.All);
-            
-         }
-
     }
     
-    [PunRPC]
-    private void setWinner(string nickname){
-        gameManager.setWinner(nickname);
-    }
-
-    [PunRPC]
-    private void finishGame() {
-        PhotonNetwork.AutomaticallySyncScene = true;
-        PhotonNetwork.LoadLevel(2);
-
-
-    }
-
-    private void Update()
+    private void FixedUpdate()
     {
         if (!PV.IsMine)
             return;//내꺼아니면 작동안함
-    }
-
-
-    void FixedUpdate()
-    {
-
 
         if (Input.GetKey(front))
         {
@@ -171,14 +118,19 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
         if (Input.GetAxis("Jump") > 0)
         {
-            Debug.Log("push space: " + isGrounded);
             if (isGrounded)
             {
+                // Debug.Log(jumpSound);
+                // audioSource.clip = jumpClip;
                 body.AddForce(new Vector3(0, jumpForce, 0));
-
                 isGrounded = false;
-                Debug.Log("after Jump" + isGrounded);
+                audioSource.PlayOneShot(jumpClip);
             }
+        }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            canvas.transform.Find("EndPanel").gameObject.SetActive(true);
         }
     }
 }

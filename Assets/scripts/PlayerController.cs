@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviourPunCallbacks
 {
     public Animator animator;
     public KeyCode left, right, front, back;
@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip jumpClip;
+    GameController gameController;
 
     // static AudioSource audioSrc;
     // Start is called before the first frame update
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
         canvas = GameObject.Find("EndCanvas"); 
         audioSource = GetComponent<AudioSource>();
         jumpClip = Resources.Load("BackGroundMusic/jumpSound") as AudioClip;
+        gameController = GameObject.Find("GameController").GetComponent<GameController>();
 
     }
 
@@ -44,7 +46,25 @@ public class PlayerController : MonoBehaviour
             Destroy(body);
         }
     }
-    
+
+    // private void OnCollisionEnter(Collision collision)
+    // {
+    //     Debug.Log("on collision");
+    //     if (collision.gameObject.CompareTag("Finish"))
+    //     {
+    //         Debug.Log("it is finishline");
+    //         gameController.setWinner(PhotonNetwork.NickName);
+   
+    //         Debug.Log("winner" + gameController.getWinner());
+    //         Debug.Log("losers" + gameController.getLosers());
+  
+    //         //GameObject canvas = GameObject.Find("WinnerCanvas");
+    //         //canvas.Find("winnerPannel").Find("Winner").text = gameManager.getWinner();
+    //         //canvas.Find("winnerPannel").Find("Loser").text = gameManager.getLosers();
+
+    //     }
+    // }
+
     private void FixedUpdate()
     {
         if (!PV.IsMine)

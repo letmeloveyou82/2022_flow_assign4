@@ -10,8 +10,6 @@ public class LimbCollision : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Limb Before change" + rudeZbangController.isGrounded);
         rudeZbangController.isGrounded = true;
-        Debug.Log("Limb" + rudeZbangController.isGrounded);
     }
 }

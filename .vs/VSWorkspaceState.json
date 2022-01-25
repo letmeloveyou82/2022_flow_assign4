@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Assets",
+    "\\Assets\\Scenes",
     "\\Assets\\scripts"
   ],
-  "SelectedNode": "\\Assets\\scripts\\LimbCollision.cs",
+  "SelectedNode": "\\Assets\\scripts\\GameController.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -18,7 +18,11 @@ public class PlayerController : MonoBehaviour
     PhotonView PV;
     public Camera cam;
     GameObject canvas;
- 
+
+    public AudioSource audioSource;
+    public AudioClip jumpClip;
+
+    // static AudioSource audioSrc;
     // Start is called before the first frame update
     void Awake()
     {
@@ -26,6 +30,9 @@ public class PlayerController : MonoBehaviour
         PV = GetComponent<PhotonView>();
         cam = transform.root.GetComponentInChildren<Camera>();
         canvas = GameObject.Find("EndCanvas"); 
+        audioSource = GetComponent<AudioSource>();
+        jumpClip = Resources.Load("BackGroundMusic/jumpSound") as AudioClip;
+
     }
 
     void Start()
@@ -37,7 +44,7 @@ public class PlayerController : MonoBehaviour
             Destroy(body);
         }
     }
-
+    
     private void FixedUpdate()
     {
         if (!PV.IsMine)
@@ -113,8 +120,11 @@ public class PlayerController : MonoBehaviour
         {
             if (isGrounded)
             {
+                // Debug.Log(jumpSound);
+                // audioSource.clip = jumpClip;
                 body.AddForce(new Vector3(0, jumpForce, 0));
                 isGrounded = false;
+                audioSource.PlayOneShot(jumpClip);
             }
         }
 

@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
         
         if(Input.GetKey(front))
         {
-            if(Input.GetKey(KeyCode.LeftShift))
+            if(Input.GetKey(KeyCode.LeftShift) && isGrounded)
             {
                 animator.SetBool("isWalk", true);
                 animator.SetBool("isRun", true);
@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKey(back))
         {
-            if(Input.GetKey(KeyCode.LeftShift))
+            if(Input.GetKey(KeyCode.LeftShift) && isGrounded )
             {
                 animator.SetBool("isWalk", true);
                 animator.SetBool("isRun", true);

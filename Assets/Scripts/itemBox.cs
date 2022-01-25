@@ -11,6 +11,7 @@ public class itemBox : MonoBehaviour
     float collisionTime;
     float speed;
     float strafeSpeed;
+    float jumpForce;
     int number;
     bool haveItem;
     GameObject canvas;
@@ -20,6 +21,7 @@ public class itemBox : MonoBehaviour
         canvas = GameObject.Find("items");
         speed = rudeZbangController.speed;
         strafeSpeed = rudeZbangController.strafeSpeed;
+        jumpForce = rudeZbangController.jumpForce;
         left = rudeZbangController.left;
         right = rudeZbangController.right;
         front = rudeZbangController.front;
@@ -87,6 +89,9 @@ public class itemBox : MonoBehaviour
                         yield return StartCoroutine(Jump());
                         Debug.Log("Finish Jump coroutine");
                         break;
+                    case 5:
+                        yield return StartCoroutine(HighJump());
+                        break;
                 }
             }
 
@@ -112,6 +117,7 @@ public class itemBox : MonoBehaviour
     {
         Debug.Log("immediately after slow : " + haveItem);
         rudeZbangController.speed = speed/3;
+        rudeZbangController.strafeSpeed = strafeSpeed/3;
         for (int i=5; i>0; i--)
         {
             canvas.transform.Find("SlowPanel").Find("time").GetComponent<Text>().text = i + "s";
@@ -120,6 +126,7 @@ public class itemBox : MonoBehaviour
         canvas.transform.Find("SlowPanel").gameObject.SetActive(false);
 
         rudeZbangController.speed = speed;
+        rudeZbangController.strafeSpeed = strafeSpeed;
         haveItem = false;
         Debug.Log("after slow : " + haveItem);
     }
@@ -129,7 +136,8 @@ public class itemBox : MonoBehaviour
         Debug.Log("immediately after stop : " + haveItem);
         rudeZbangController.speed = 0;
         rudeZbangController.strafeSpeed = 0;
-        for (int i=5; i>0; i--)
+        rudeZbangController.jumpForce = 0;
+        for (int i=3; i>0; i--)
         {
             canvas.transform.Find("StopPanel").Find("time").GetComponent<Text>().text = i + "s";
             yield return new WaitForSecondsRealtime(1f);
@@ -138,6 +146,7 @@ public class itemBox : MonoBehaviour
     
         rudeZbangController.speed = speed;
         rudeZbangController.strafeSpeed = strafeSpeed;
+        rudeZbangController.jumpForce = jumpForce;
         haveItem = false;   
         Debug.Log("after stop : " + haveItem);
     }
@@ -174,6 +183,20 @@ public class itemBox : MonoBehaviour
         Debug.Log("after jump : " + haveItem);
     }
 
+    IEnumerator HighJump()
+    {
+        rudeZbangController.jumpForce = jumpForce*2;
+        for (int i=5; i>0; i--)
+        {
+            canvas.transform.Find("HighJumpPanel").Find("time").GetComponent<Text>().text = i + "s";
+            yield return new WaitForSecondsRealtime(1f);
+        }
+        canvas.transform.Find("HighJumpPanel").gameObject.SetActive(false);
+        rudeZbangController.jumpForce = jumpForce;
+        haveItem = false;
+
+    }
+
     void OnTriggerEnter(Collider collision){
         Debug.Log("before check haveitem after collision : " + haveItem);
         // Debug.Log("test");
@@ -183,7 +206,7 @@ public class itemBox : MonoBehaviour
             if(collision.gameObject.CompareTag("Item"))
             {
                 System.Random rand = new System.Random();
-                number = rand.Next(5);
+                number = rand.Next(6);
                 collisionTime = Time.time;
                 collision.gameObject.SetActive(false);
                 // Debug.Log("collision haveItem 종류 : " + number);
@@ -209,6 +232,10 @@ public class itemBox : MonoBehaviour
                         break;
                     case 4:
                         canvas.transform.Find("JumpPanel").gameObject.SetActive(true);
+                        Debug.Log("finish collision : " + haveItem);
+                        break;
+                    case 5:
+                        canvas.transform.Find("HighJumpPanel").gameObject.SetActive(true);
                         Debug.Log("finish collision : " + haveItem);
                         break;
                 }

@@ -43,7 +43,7 @@ public class Grab : MonoBehaviour
         if (MyGrabObj!= null){
          if(Input.GetKeyUp(GrabInput))
          {
-             if(MyGrabObj.CompareTag("Item"))
+             if(MyGrabObj.CompareTag("SlowBox"))
              {
                 Vector3 speed = new Vector3(0,30,100);
                 Debug.Log("UnGrabbed");
@@ -70,7 +70,7 @@ public class Grab : MonoBehaviour
 
     void OnCollisionEnter(Collision collision) {
 
-        if(collision.gameObject.CompareTag("Item"))
+        if(collision.gameObject.CompareTag("SlowBox"))
         {
             // Debug.Log("collisionEnter");
             MyGrabObj = collision.gameObject;

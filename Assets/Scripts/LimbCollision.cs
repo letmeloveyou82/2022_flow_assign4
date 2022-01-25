@@ -4,19 +4,53 @@ using UnityEngine;
 
 public class LimbCollision : MonoBehaviour
 {
+    
     public PlayerController rudeZbangController;
+    public Rigidbody rb;
+    Rigidbody hip;
+    Transform body;
+    float speed;
+    float strafeSpeed;
     private void Start()
     {
         rudeZbangController = GameObject.FindObjectOfType<PlayerController>().GetComponent<PlayerController>();
+        body = rb.transform;
+        hip = GameObject.FindObjectOfType<PlayerController>().transform.root.GetComponentInChildren<Rigidbody>();
+        speed = rudeZbangController.speed;
+        strafeSpeed = rudeZbangController.strafeSpeed;
     }
     private void OnCollisionEnter(Collision collision)
     {
         rudeZbangController.isGrounded = true;
+        Debug.Log(rb.name);
         if (collision.gameObject.CompareTag("Trap"))
         {
-            Rigidbody rb = GameObject.FindObjectOfType<PlayerController>().transform.root.GetComponentInChildren<Rigidbody>();
-            rb.AddForce(new Vector3(0,200,-200), ForceMode.Impulse);
+            hip.AddForce(new Vector3(0,10,-300), ForceMode.Impulse);
             rudeZbangController.isGrounded = false; 
         }
+
+        if (collision.gameObject.CompareTag("Climb"))
+        {
+            rudeZbangController.isGrounded = false;
+        }
+
+        if (collision.gameObject.CompareTag("Jump") && (rb.name.Equals("lower_leg.L") || rb.name.Equals("lower_leg.R")))
+        {
+            rudeZbangController.isGrounded = false;
+            hip.AddForce(new Vector3(0,300,0), ForceMode.Impulse);
+        }
+        if (collision.gameObject.CompareTag("SlowBox"))
+        {
+            StartCoroutine(Stop());
+        }
+    }
+        IEnumerator Stop()
+    {
+        rudeZbangController.speed = 0;
+        rudeZbangController.strafeSpeed = 0;
+        yield return new WaitForSecondsRealtime(2f);
+    
+        rudeZbangController.speed = speed;
+        rudeZbangController.strafeSpeed = strafeSpeed;
     }
 }

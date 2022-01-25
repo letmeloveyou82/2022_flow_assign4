@@ -8,6 +8,9 @@ TagManager:
   - Item
   - DeathTrigger
   - Trap
+  - Climb
+  - Jump
+  - SlowBox
   layers:
   - Default
   - TransparentFX

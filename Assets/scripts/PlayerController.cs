@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerController : MonoBehaviourPunCallbacks
@@ -19,12 +20,12 @@ public class PlayerController : MonoBehaviourPunCallbacks
     GameObject finish;
     bool isFinish;
     bool isWinner;
-    game gameManager;
+    GameManager gameManager;
 
     // Start is called before the first frame update
     void Awake()
     {
-        gameManager = game.Instance;
+        gameManager = GameManager.Instance;
         body = GetComponent<Rigidbody>();
         PV = GetComponent<PhotonView>();
         cam = transform.root.GetComponentInChildren<Camera>();
@@ -39,17 +40,24 @@ public class PlayerController : MonoBehaviourPunCallbacks
         }
 
         
+        //if (scenemanager.getactivescene().name == "endgame")
+        //{
+        //    if (gamemanager.nickname != "")
+        //    {
+        //        if (gamemanager.nickname == photonnetwork.nickname)
+        //        {
+        //            debug.log(photonnetwork.nickname);
+        //            body.transform.root.transform.position = new vector3(10, 10, 10);
+        //        }
+        //        else
+        //        {   
+        //            body.transform.root.transform.position = new vector3(30, 30, 100);
+        //        }
+        //    }
+        //}
 
-        if (gameManager.nickname != "") {
-            if (gameManager.nickname == PhotonNetwork.NickName)
-            {
-                body.transform.root.transform.position = new Vector3 (10,10,10);
-            }
-            else{
-                body.transform.root.transform.position = new Vector3 (1000,10000,100);
-            }
+
     }
-        }
 
 
     private void OnTriggerEnter(Collider other)

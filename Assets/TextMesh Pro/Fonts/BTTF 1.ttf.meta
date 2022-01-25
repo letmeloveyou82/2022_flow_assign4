@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: f6e273aa35d973b4591485863414bc7f
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Back to the future 2002
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a55a18ca8c1daa744ac8e09ca058a32c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -45,10 +45,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -159,9 +157,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3092}
     - Class: 114
-      Script: {instanceID: 4788}
+      Script: {instanceID: 4458}
     - Class: 114
-      Script: {instanceID: 22058}
+      Script: {instanceID: 4788}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -272,25 +270,25 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3092}
     - Class: 114
-      Script: {instanceID: 3388}
+      Script: {instanceID: 3386}
     - Class: 114
-      Script: {instanceID: 3548}
+      Script: {instanceID: 3546}
     - Class: 114
-      Script: {instanceID: 3758}
+      Script: {instanceID: 3756}
     - Class: 114
-      Script: {instanceID: 3774}
+      Script: {instanceID: 3772}
     - Class: 114
-      Script: {instanceID: 3870}
+      Script: {instanceID: 3868}
     - Class: 114
-      Script: {instanceID: 3874}
+      Script: {instanceID: 3872}
     - Class: 114
-      Script: {instanceID: 4044}
+      Script: {instanceID: 4042}
     - Class: 114
-      Script: {instanceID: 4088}
+      Script: {instanceID: 4086}
     - Class: 114
-      Script: {instanceID: 4172}
+      Script: {instanceID: 4170}
     - Class: 114
-      Script: {instanceID: 4192}
+      Script: {instanceID: 4190}
     - Class: 114
       Script: {instanceID: 4470}
     - Class: 114
@@ -722,7 +720,7 @@ ScriptsOnlyBuild:
     className: PhotonHandler
   - hash:
       serializedVersion: 2
-      Hash: cc3a7803308fd6e7650e35b39ccf9e12
+      Hash: fe4c76cdd083758d03d2c0029cd202cf
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Launcher
@@ -1544,6 +1542,12 @@ ScriptsOnlyBuild:
     className: WorldGenerator
   - hash:
       serializedVersion: 2
+      Hash: bec461ab627e07fe1c880d2b4e5a749e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: game
+  - hash:
+      serializedVersion: 2
       Hash: 49dcb3939f87870ac10cf1f8fcdfb35e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1758,12 +1762,6 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit.Forms
     className: UserIdUiForm
-  - hash:
-      serializedVersion: 2
-      Hash: bec461ab627e07fe1c880d2b4e5a749e
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: game
   platform: 5
   scenePathNames:
   - Assets/Scenes/Multiplay.unity

@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Multiplay.unity
     guid: 7d90559448eef85489882568a4a9d8d3
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/GameScene.unity
     guid: b799b543ebeeaa84fb1f68150f5804de
   - enabled: 1
     path: Assets/Scenes/EndGame.unity

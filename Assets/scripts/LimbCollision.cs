@@ -23,7 +23,6 @@ public class LimbCollision : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         rudeZbangController.isGrounded = true;
-        Debug.Log(rb.name);
         if (collision.gameObject.CompareTag("Trap"))
         {
             hip.AddForce(new Vector3(0,10,-300), ForceMode.Impulse);

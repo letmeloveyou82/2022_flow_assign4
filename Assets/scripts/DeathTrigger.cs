@@ -9,22 +9,22 @@ public class DeathTrigger : MonoBehaviour
   RoomManager rm;
   GameObject zbang;
 
-  void OnCollisionEnter(Collision collision)
-  {
-    if (collision.gameObject.CompareTag("Player"))
-    {
-      Debug.Log("Dead");
-      // collision.gameObject.SetActive(false);
-      // EndPanel.SetActive(true);
+  // void OnCollisionEnter(Collision collision)
+  // {
+  //   if (collision.gameObject.CompareTag("Player"))
+  //   {
+  //     Debug.Log("Dead");
+  //     // collision.gameObject.SetActive(false);
+  //     // EndPanel.SetActive(true);
       
-      // StartCoroutine(Move(collision));
-        // EndPanel.SetActive(true);
-        float RandomX = UnityEngine.Random.Range(-9, 9);
-        Debug.Log("before set False");
-        zbang =  collision.gameObject;
-        zbang.transform.position = new Vector3(0,0,0);
-    }
-  }
+  //     // StartCoroutine(Move(collision));
+  //       // EndPanel.SetActive(true);
+  //       float RandomX = UnityEngine.Random.Range(-9, 9);
+  //       Debug.Log("before set False");
+  //       zbang =  collision.gameObject;
+  //       zbang.transform.position = new Vector3(0,0,0);
+  //   }
+  // }
 
 
   public void ExitBtn()

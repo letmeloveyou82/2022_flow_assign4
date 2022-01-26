@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 
 public class PlayerController : MonoBehaviourPunCallbacks
 {
@@ -10,8 +11,6 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public float speed;
     public float strafeSpeed;
     public float jumpForce;
-    public GameObject EndPanel;
-    // public GameObject EndPanel;
 
     public Rigidbody body;
     public bool isGrounded;
@@ -22,6 +21,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public AudioSource audioSource;
     public AudioClip jumpClip;
     GameController gameController;
+    PlayerManager playerManager;
 
     // static AudioSource audioSrc;
     // Start is called before the first frame update
@@ -29,6 +29,11 @@ public class PlayerController : MonoBehaviourPunCallbacks
     {
         body = GetComponent<Rigidbody>();
         PV = GetComponent<PhotonView>();
+        Debug.Log(PhotonView.Find((int)PV.InstantiationData[0]).GetComponent<PlayerManager>());
+        playerManager = PhotonView.Find((int)PV.InstantiationData[0]).GetComponent<PlayerManager>();
+        Debug.Log(playerManager);
+
+
         cam = transform.root.GetComponentInChildren<Camera>();
         canvas = GameObject.Find("EndCanvas"); 
         audioSource = GetComponent<AudioSource>();
@@ -47,23 +52,13 @@ public class PlayerController : MonoBehaviourPunCallbacks
         }
     }
 
-    // private void OnCollisionEnter(Collision collision)
-    // {
-    //     Debug.Log("on collision");
-    //     if (collision.gameObject.CompareTag("Finish"))
-    //     {
-    //         Debug.Log("it is finishline");
-    //         gameController.setWinner(PhotonNetwork.NickName);
-   
-    //         Debug.Log("winner" + gameController.getWinner());
-    //         Debug.Log("losers" + gameController.getLosers());
-  
-    //         //GameObject canvas = GameObject.Find("WinnerCanvas");
-    //         //canvas.Find("winnerPannel").Find("Winner").text = gameManager.getWinner();
-    //         //canvas.Find("winnerPannel").Find("Loser").text = gameManager.getLosers();
-
-    //     }
-    // }
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("DeathTrigger"))
+        {
+            playerManager.Die();
+        }
+    }
 
     private void FixedUpdate()
     {
@@ -144,6 +139,10 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 isGrounded = false;
                 audioSource.PlayOneShot(jumpClip);
             }
+        }
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            canvas.transform.Find("EscPanel").gameObject.SetActive(true);
         }
     }
 }

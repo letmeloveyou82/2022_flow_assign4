@@ -19,6 +19,9 @@ public class Launcher : MonoBehaviourPunCallbacks
     [SerializeField] GameObject playerListItemPrefab;
     [SerializeField] GameObject StartGameButton;
 
+    
+    [SerializeField] GameObject StartMenuStartGameButton;
+
     [SerializeField] GameObject SetNickNameButton;
     [SerializeField] TMP_InputField nickNameInputField;
     // Start is called before the first frame update
@@ -57,8 +60,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     public void SetNickName()
     {
         PhotonNetwork.NickName = nickNameInputField.text.ToString();
-        Debug.Log(PhotonNetwork.NickName);
-        Debug.Log(nickNameInputField.text);
+        StartMenuStartGameButton.SetActive(true);
     }
 
     public void CreateRoom()

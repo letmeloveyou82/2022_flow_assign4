@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 public class FinishController : MonoBehaviour

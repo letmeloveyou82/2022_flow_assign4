@@ -1,5 +1,6 @@
 # Rude Zbang
 ## 목표 지점에 가장 먼저 도달하는 사람이 이기는 멀티 플레이 게임
+Unity, Blender, Photon
 
 ## A. 개발 팀원  
 - KAIST 전산학부 [김서현](https://github.com/seohyeon0322)

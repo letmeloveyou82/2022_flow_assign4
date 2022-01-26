@@ -70,9 +70,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
         if (!PV.IsMine)
             return;//내꺼아니면 작동안함
 
-        if (Input.GetKey(front))
+        if(Input.GetKey(front))
         {
-            if (Input.GetKey(KeyCode.LeftShift))
+            if(Input.GetKey(KeyCode.LeftShift) && isGrounded)
             {
                 animator.SetBool("isWalk", true);
                 animator.SetBool("isRun", true);
@@ -86,13 +86,13 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 body.AddForce(body.transform.forward * speed);
             }
         }
-        else
+        else 
         {
             animator.SetBool("isWalk", false);
             animator.SetBool("isRun", false);
         }
 
-        if (Input.GetKey(left))
+        if(Input.GetKey(left))
         {
             animator.SetBool("isSideLeft", true);
             body.AddForce(-body.transform.right * strafeSpeed);
@@ -102,9 +102,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
             animator.SetBool("isSideLeft", false);
         }
 
-        if (Input.GetKey(back))
+        if(Input.GetKey(back))
         {
-            if (Input.GetKey(KeyCode.LeftShift))
+            if(Input.GetKey(KeyCode.LeftShift) && isGrounded )
             {
                 animator.SetBool("isWalk", true);
                 animator.SetBool("isRun", true);
@@ -125,32 +125,25 @@ public class PlayerController : MonoBehaviourPunCallbacks
             animator.SetBool("isRun", false);
         }
 
-        if (Input.GetKey(right))
+        if(Input.GetKey(right))
         {
             animator.SetBool("isSideRight", true);
             body.AddForce(body.transform.right * strafeSpeed);
         }
-        else if (!Input.GetKey(left))
+        else if (!Input.GetKey(KeyCode.A))
         {
             animator.SetBool("isSideRight", false);
             animator.SetBool("isSideLeft", false);
         }
 
-        if (Input.GetAxis("Jump") > 0)
+        if(Input.GetAxis("Jump") > 0)
         {
-            if (isGrounded)
+            if(isGrounded)
             {
-                // Debug.Log(jumpSound);
-                // audioSource.clip = jumpClip;
                 body.AddForce(new Vector3(0, jumpForce, 0));
                 isGrounded = false;
                 audioSource.PlayOneShot(jumpClip);
             }
-        }
-
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            canvas.transform.Find("EndPanel").gameObject.SetActive(true);
         }
     }
 }

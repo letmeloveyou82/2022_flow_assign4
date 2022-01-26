@@ -7,6 +7,7 @@ public class DeathTrigger : MonoBehaviour
 {
   public GameObject EndPanel;
   RoomManager rm;
+  GameObject zbang;
 
   void OnCollisionEnter(Collision collision)
   {
@@ -19,9 +20,12 @@ public class DeathTrigger : MonoBehaviour
       // StartCoroutine(Move(collision));
         // EndPanel.SetActive(true);
         float RandomX = UnityEngine.Random.Range(-9, 9);
-        collision.gameObject.transform.position = new Vector3(RandomX,15,-100);
+        Debug.Log("before set False");
+        zbang =  collision.gameObject;
+        zbang.transform.position = new Vector3(0,0,0);
     }
   }
+
 
   public void ExitBtn()
   {

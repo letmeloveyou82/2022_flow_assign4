@@ -24,9 +24,8 @@ public class FinishController : MonoBehaviour
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
         
     }
-     void OnCollisionEnter(Collision other)
+     void OnTriggerEnter(Collider other)
      {
-
             finish = other.gameObject;
             string nickname = other.transform.root.Find("metarig").Find("Hip").GetComponent<PhotonView>().Owner.NickName;
             gameController.setWinner(nickname);

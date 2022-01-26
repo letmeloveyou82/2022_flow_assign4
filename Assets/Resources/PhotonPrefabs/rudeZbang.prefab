@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rudeZbangController: {fileID: 4505540301988076547}
+  hip: {fileID: 4505540301988076544}
 --- !u!1 &180280537847222776
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,6 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rudeZbangController: {fileID: 4505540301988076547}
+  hip: {fileID: 4505540301988076544}
 --- !u!114 &4505540301988076595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,6 +380,7 @@ MonoBehaviour:
   GrabInput: 106
   MyGrabObj: {fileID: 0}
   IsGrab: 0
+  cam: {fileID: 0}
 --- !u!1 &1011126675258637849
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rudeZbangController: {fileID: 4505540301988076547}
+  hip: {fileID: 4505540301988076544}
 --- !u!1 &1150323690759452270
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,6 +730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rudeZbangController: {fileID: 4505540301988076547}
+  hip: {fileID: 4505540301988076544}
 --- !u!1 &1216005991001442490
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,6 +906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rudeZbangController: {fileID: 4505540301988076547}
+  hip: {fileID: 4505540301988076544}
 --- !u!1 &1226020253806622849
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,6 +1164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rudeZbangController: {fileID: 4505540301988076547}
+  hip: {fileID: 4505540301988076544}
 --- !u!1 &4059163175582106070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,6 +1340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rudeZbangController: {fileID: 4505540301988076547}
+  hip: {fileID: 4505540301988076544}
 --- !u!114 &4505540301988076586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1346,12 +1354,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rudeZbangController: {fileID: 4505540301988076547}
-  audioSource: {fileID: 6878665250051406957}
-  boostSound: {fileID: 8300000, guid: b41b1637a28574c4897cc00cadd39efc, type: 3}
-  cannonSound: {fileID: 8300000, guid: db1bffbd883ee5447969e50b34ad8e97, type: 3}
-  conversionSound: {fileID: 8300000, guid: cbbc00cb47ac0654aadac129f5592961, type: 3}
-  stopSound: {fileID: 8300000, guid: 45484bfd721ed524e97fa4617b9855f5, type: 3}
-  turtleSound: {fileID: 8300000, guid: 7e26c9daf4c32483b9c2790e662d3f1b, type: 3}
 --- !u!82 &6878665250051406957
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1674,6 +1676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rudeZbangController: {fileID: 4505540301988076547}
+  hip: {fileID: 4505540301988076544}
 --- !u!114 &4505540301988076584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1687,9 +1690,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 4505540301988076641}
-  GrabInput: 106
+  GrabInput: 103
   MyGrabObj: {fileID: 0}
   IsGrab: 0
+  cam: {fileID: 0}
 --- !u!1 &4937316298696966009
 GameObject:
   m_ObjectHideFlags: 0
@@ -2053,6 +2057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rudeZbangController: {fileID: 4505540301988076547}
+  hip: {fileID: 4505540301988076544}
 --- !u!1 &6925301642000140429
 GameObject:
   m_ObjectHideFlags: 0
@@ -2553,6 +2558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rudeZbangController: {fileID: 4505540301988076547}
+  hip: {fileID: 4505540301988076544}
 --- !u!1 &7360737388254881603
 GameObject:
   m_ObjectHideFlags: 0
@@ -2579,8 +2585,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7360737388254881603}
-  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 7.85, y: 30, z: -11}
+  m_LocalRotation: {x: -0.27853763, y: 0.010361646, z: -0.0029688396, w: -0.9603649}
+  m_LocalPosition: {x: 6.3011074, y: 61.058464, z: -74.82142}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4110762221683473339}
@@ -2650,7 +2656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 4744585535860301889}
-  offset: {x: 0, y: 30, z: -11}
+  offset: {x: 0, y: 20, z: -20}
 --- !u!1 &7843323670795961484
 GameObject:
   m_ObjectHideFlags: 0
@@ -2825,6 +2831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rudeZbangController: {fileID: 4505540301988076547}
+  hip: {fileID: 4505540301988076544}
 --- !u!1 &7864781008411014220
 GameObject:
   m_ObjectHideFlags: 0
@@ -3030,6 +3037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rudeZbangController: {fileID: 4505540301988076547}
+  hip: {fileID: 4505540301988076544}
 --- !u!1 &8225687817205931012
 GameObject:
   m_ObjectHideFlags: 0
@@ -3205,6 +3213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rudeZbangController: {fileID: 4505540301988076547}
+  hip: {fileID: 4505540301988076544}
 --- !u!114 &4505540301988076594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3221,6 +3230,7 @@ MonoBehaviour:
   GrabInput: 103
   MyGrabObj: {fileID: 0}
   IsGrab: 0
+  cam: {fileID: 0}
 --- !u!1 &8235745558199742555
 GameObject:
   m_ObjectHideFlags: 0
@@ -3447,6 +3457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rudeZbangController: {fileID: 4505540301988076547}
+  hip: {fileID: 4505540301988076544}
 --- !u!114 &4505540301988076587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3463,6 +3474,7 @@ MonoBehaviour:
   GrabInput: 103
   MyGrabObj: {fileID: 0}
   IsGrab: 0
+  cam: {fileID: 0}
 --- !u!1 &8634064186483162495
 GameObject:
   m_ObjectHideFlags: 0
@@ -3667,3 +3679,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rudeZbangController: {fileID: 4505540301988076547}
+  hip: {fileID: 4505540301988076544}

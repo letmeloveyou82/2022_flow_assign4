@@ -30,12 +30,19 @@ public class PlayerManager : MonoBehaviour
     async void CreateController()//플레이어 컨트롤러 만들기
     {
         Debug.Log("Instantiated Player Controller");
-        controller = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "rudeZbang"), new Vector3(spawnpoint[random],0,-90), Quaternion.identity, 0, new object[] {PV.ViewID});
+        controller = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "rudeZbang"), new Vector3(spawnpoint[random],0,-100), Quaternion.identity, 0, new object[] {PV.ViewID});
+        //포톤 프리펩에 있는 플레이어 컨트롤러를 저 위치에 저 각도로 만들어주기
+    }
+
+    async void CreateNewController()//플레이어 컨트롤러 만들기
+    {
+        Debug.Log("Instantiated Player Controller");
+        controller = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "rudeZbang"), new Vector3(spawnpoint[random],0,-80), Quaternion.identity, 0, new object[] {PV.ViewID});
         //포톤 프리펩에 있는 플레이어 컨트롤러를 저 위치에 저 각도로 만들어주기
     }
     public void Die()
 	{
 		PhotonNetwork.Destroy(controller);
-		CreateController();
+		CreateNewController();
 	}
 }

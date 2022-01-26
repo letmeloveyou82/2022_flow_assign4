@@ -22,16 +22,19 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public AudioClip jumpClip;
     GameController gameController;
     PlayerManager playerManager;
+    ConfigurableJoint cj;
+    GameObject zbang;
 
     // static AudioSource audioSrc;
     // Start is called before the first frame update
     void Awake()
     {
+        zbang = transform.root.gameObject;
         body = GetComponent<Rigidbody>();
         PV = GetComponent<PhotonView>();
+        cj = GetComponent<ConfigurableJoint>();
         Debug.Log(PhotonView.Find((int)PV.InstantiationData[0]).GetComponent<PlayerManager>());
         playerManager = PhotonView.Find((int)PV.InstantiationData[0]).GetComponent<PlayerManager>();
-        Debug.Log(playerManager);
 
 
         cam = transform.root.GetComponentInChildren<Camera>();
@@ -48,16 +51,26 @@ public class PlayerController : MonoBehaviourPunCallbacks
         if (!PV.IsMine)
         {
             Destroy(cam);
-            Destroy(body);
+            // Destroy(zbang);
+
         }
     }
 
     private void OnTriggerEnter(Collider collision)
     {
+
+
         if (collision.gameObject.CompareTag("DeathTrigger"))
         {
+            Destroy(cam);
+            Destroy(zbang);
+
+            
+        if (!PV.IsMine)
+            return;//내꺼아니면 작동안함
             playerManager.Die();
         }
+
     }
 
     private void FixedUpdate()

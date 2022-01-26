@@ -2243,10 +2243,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4505540303220022477}
-  left: 276
-  right: 275
-  front: 273
-  back: 274
+  left: 97
+  right: 100
+  front: 119
+  back: 115
   speed: 200
   strafeSpeed: 300
   jumpForce: 7000
@@ -2663,6 +2663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 4744585535860301889}
   offset: {x: 0, y: 20, z: -20}
+  Zbang: {fileID: 1610478566568412191}
 --- !u!1 &7843323670795961484
 GameObject:
   m_ObjectHideFlags: 0

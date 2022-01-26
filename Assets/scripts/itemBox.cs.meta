@@ -3,7 +3,15 @@ guid: d938b1496c6b042e88af8151e073fe1f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - rudeZbangController: {instanceID: 0}
+  - audioSource: {instanceID: 0}
+  - boostSound: {fileID: 8300000, guid: b41b1637a28574c4897cc00cadd39efc, type: 3}
+  - cannonSound: {fileID: 8300000, guid: db1bffbd883ee5447969e50b34ad8e97, type: 3}
+  - conversionSound: {fileID: 8300000, guid: cbbc00cb47ac0654aadac129f5592961, type: 3}
+  - stopSound: {fileID: 8300000, guid: 45484bfd721ed524e97fa4617b9855f5, type: 3}
+  - turtleSound: {fileID: 8300000, guid: 7e26c9daf4c32483b9c2790e662d3f1b, type: 3}
+  - highJumpSound: {fileID: 8300000, guid: cf35b29aeaf76c7478e875a14801aef3, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

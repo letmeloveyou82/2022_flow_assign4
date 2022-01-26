@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         body = GetComponent<Rigidbody>();
         PV = GetComponent<PhotonView>();
         cam = transform.root.GetComponentInChildren<Camera>();
-        canvas = GameObject.Find("EndCanvas"); 
+        canvas = GameObject.Find("EscCanvas"); 
         audioSource = GetComponent<AudioSource>();
         jumpClip = Resources.Load("BackGroundMusic/jumpSound") as AudioClip;
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
@@ -144,6 +144,10 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 isGrounded = false;
                 audioSource.PlayOneShot(jumpClip);
             }
+        }
+         if (Input.GetKey(KeyCode.Escape))
+        {
+            canvas.transform.Find("EscPanel").gameObject.SetActive(true);
         }
     }
 }

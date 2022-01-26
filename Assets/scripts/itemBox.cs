@@ -16,6 +16,8 @@ public class itemBox : MonoBehaviour
     bool haveItem;
     GameObject canvas;
     KeyCode left, right, front, back;
+    public AudioSource audioSource;
+    public AudioClip boostSound, cannonSound, conversionSound, stopSound, turtleSound, highJumpSound;
     void Start()
     {
         canvas = GameObject.Find("items");
@@ -28,6 +30,13 @@ public class itemBox : MonoBehaviour
         back = rudeZbangController.back;
         haveItem = false;
         StartCoroutine(Item());
+        audioSource = GetComponent<AudioSource>();
+        boostSound = Resources.Load("BackGroundMusic/boostSound") as AudioClip;
+        cannonSound = Resources.Load("BackGroundMusic/cannonSound") as AudioClip;
+        conversionSound = Resources.Load("BackGroundMusic/conversionSound") as AudioClip;
+        stopSound = Resources.Load("BackGroundMusic/stopSound") as AudioClip;
+        turtleSound = Resources.Load("BackGroundMusic/turtleSound") as AudioClip;
+        highJumpSound = Resources.Load("BackgroundMusic/highJumpSound") as AudioClip;
 
     }
     void FixedUpdate()
@@ -100,6 +109,7 @@ public class itemBox : MonoBehaviour
     }
     IEnumerator Boost()
     {
+        audioSource.PlayOneShot(boostSound);
         Debug.Log("immediately after boost : " + haveItem);
         rudeZbangController.speed = speed*2;
         for (int i=5; i>0; i--)
@@ -115,6 +125,7 @@ public class itemBox : MonoBehaviour
 
     IEnumerator Slow()
     {
+        audioSource.PlayOneShot(turtleSound);
         Debug.Log("immediately after slow : " + haveItem);
         rudeZbangController.speed = speed/3;
         rudeZbangController.strafeSpeed = strafeSpeed/3;
@@ -133,6 +144,7 @@ public class itemBox : MonoBehaviour
 
     IEnumerator Stop()
     {
+        audioSource.PlayOneShot(stopSound);
         Debug.Log("immediately after stop : " + haveItem);
         rudeZbangController.speed = 0;
         rudeZbangController.strafeSpeed = 0;
@@ -153,6 +165,7 @@ public class itemBox : MonoBehaviour
 
     IEnumerator Change()
     {
+        audioSource.PlayOneShot(conversionSound);
         Debug.Log("immediately after change : " + haveItem);
         rudeZbangController.left = right;
         rudeZbangController.right = left;
@@ -174,6 +187,7 @@ public class itemBox : MonoBehaviour
 
     IEnumerator Jump()
     {
+        audioSource.PlayOneShot(cannonSound);
         Debug.Log("immediately after jump : " + haveItem);
         Rigidbody rb = transform.root.GetComponentInChildren<Rigidbody>();        
         rb.AddForce(new Vector3(0,500,500), ForceMode.Impulse);   
@@ -185,6 +199,7 @@ public class itemBox : MonoBehaviour
 
     IEnumerator HighJump()
     {
+        audioSource.PlayOneShot(highJumpSound);
         rudeZbangController.jumpForce = jumpForce*2;
         for (int i=5; i>0; i--)
         {
